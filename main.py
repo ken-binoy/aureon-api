@@ -4,8 +4,10 @@ import json
 import os
 from wallet import generate_wallet, import_wallet_from_private_key, verify_signature
 from pydantic import BaseModel
+from contracts import router as contracts_router
 
 app = FastAPI()
+app.include_router(contracts_router)
 STATE_FILE = "state.json"
 
 def load_state():
